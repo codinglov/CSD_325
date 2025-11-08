@@ -21,8 +21,11 @@ def beer_bottle_song(initial_number_of_beer_bottles):
                 
         elif bottles == 1:
             print("1 bottle of beer on the wall, 1 bottle of beer.")
+            
             print("Take one down and pass it around, no more bottles of beer on the wall.")
+            
             print("No more bottles of beer on the wall, no more bottles of beer.")
+            
             # add decoration to show end of verse
             print("_________________________________________________________________________")
             
@@ -31,6 +34,7 @@ def main():
     
     # welcome user and get input
     print("This is 100 Bottles of Beer on the Wall")
+    
     print("Welcome, enjoy the song!")
     
     # ask user for number of bottles
@@ -60,3 +64,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
