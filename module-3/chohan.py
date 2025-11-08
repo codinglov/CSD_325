@@ -14,11 +14,12 @@ In this traditional Japanese dice game, two dice are rolled in a bamboo
 cup by the dealer sitting on the floor. The player must guess if the
 dice total to an even (cho) or odd (han) number.
 ''')
+print('LMM: ')
 
 purse = 5000
 while True:  # Main game loop.
     # Place your bet:
-    print('You have', purse, 'mon. How much do you bet? (or QUIT)')
+    print('You have', purse, 'mon. How much do you bet lmm: ? (or QUIT)')
     while True:
         pot = input('> ')
         if pot.upper() == 'QUIT':
@@ -41,6 +42,7 @@ while True:  # Main game loop.
     print('The dealer slams the cup on the floor, still covering the')
     print('dice and asks for your bet.')
     print()
+    print('what is your bet LMM:')
     print('    CHO (even) or HAN (odd)?')
 
     # Let the player bet cho or han:
@@ -59,10 +61,13 @@ while True:  # Main game loop.
 
     # Determine if the player won:
     rollIsEven = (dice1 + dice2) % 2 == 0
-    if rollIsEven:
-        correctBet = 'CHO'
-    else:
-        correctBet = 'HAN'
+    correctBet = 'CHO' if rollIsEven else 'HAN'
+    
+    if dice1+dice2 in (2, 7):
+        print("You won a 10 mon bonus!")
+        purse +=10
+        
+    
 
     playerWon = bet == correctBet
 
@@ -70,8 +75,8 @@ while True:  # Main game loop.
     if playerWon:
         print('You won! You take', pot, 'mon.')
         purse = purse + pot  # Add the pot from player's purse.
-        print('The house collects a', pot // 10, 'mon fee.')
-        purse = purse - (pot // 10)  # The house fee is 10%.
+        print('The house collects a', pot // 12, 'mon fee.')
+        purse = purse - (pot // 12)  # The house fee is 12%.
     else:
         purse = purse - pot  # Subtract the pot from player's purse.
         print('You lost!')
